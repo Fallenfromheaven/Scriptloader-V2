@@ -15,7 +15,7 @@ local whitelisted_players = {
 local gamePlaceIDs = {
     ["Blox Fruits"] = {2753915549, 4442272183, 7449423635},
     ["Break in 2"]  = {13864661000, 13864667823},
-    -- ["Game3"] = {6789012345}
+    ["Fisch"]       = {16732694052}
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -209,6 +209,49 @@ if game_name == "Break in 2" then
         end
         })
     local g2_Divider_1 = game2:CreateDivider()
+end
+
+if game_name == "Fisch" then
+
+    local game3 = Window:CreateTab("Fisch", 4483362458)
+
+    local g3_Section_1 = game3:CreateSection("Spectrum Hub")
+    local g3_Button_1 = game3:CreateButton({
+        Name = "Spectrum Hub",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/xZPUHigh/Spectrum-Cloud/main/Loader.lua'))()
+        end
+        })
+    local g3_Toggle_1 = game3:CreateToggle({
+        Name = "Spectrum Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g3_toggle_1",
+        Callback = function(Value)
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/xZPUHigh/Spectrum-Cloud/main/Loader.lua'))()
+        end
+        })
+    local g3_Divider_1 = game3:CreateDivider()
+
+    if whitelisted_players[UID] then
+        local g3_Section_2 = game3:CreateSection("Flow")
+        local g3_Button_2 = game3:CreateButton({
+            Name = "Flow",
+            Callback = function()
+                script_key="sYpQSjImhYYNzIWKDEruPFVRUAlixnXc";
+                loadstring(game:HttpGet("https://api.flow-hub.xyz/loader"))()
+            end
+            })
+        local g3_Toggle_2 = game3:CreateToggle({
+            Name = "Flow Auto-execute",
+            CurrentValue = false,
+            Flag = "g3_toggle_2",
+            Callback = function(Value)
+                script_key="sYpQSjImhYYNzIWKDEruPFVRUAlixnXc";
+                loadstring(game:HttpGet("https://api.flow-hub.xyz/loader"))()
+            end
+            })
+        local g3_Divider_2 = game3:CreateDivider
+    end
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
