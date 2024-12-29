@@ -102,4 +102,33 @@ local u_Toggle_4 = Universal:CreateToggle({
 })
 local u_Divider_4 = Universal:CreateDivider()
 
+local u_Section_5 = Universal:CreateSection("Save Instance")
+local u_Button_5 = Universal:CreateButton({
+    Name = "Save Instance",
+    Callback = function()
+        local Params = {
+        RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+        SSI = "saveinstance",
+        }
+        local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+        local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+        synsaveinstance(Options)
+    end
+})
+local u_Toggle_5 = Universal:CreateToggle({
+    Name = "Save Instance Auto-execute",
+    CurrentValue = false,
+    Flag = "u_toggle_5",
+    Callback = function(Value)
+        local Params = {
+        RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+        SSI = "saveinstance",
+        }
+        local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+        local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+        synsaveinstance(Options)
+    end
+})
+local u_Divider_5 = Universal:CreateDivider()
+
 Rayfield:LoadConfiguration()
