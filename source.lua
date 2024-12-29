@@ -158,7 +158,7 @@ if game_name == "Blox Fruits" then
     local g1_Button_1 = game1:CreateButton({
         Name = "Quartyz Hub",
         Callback = function()
-            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+            loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
         end
         })
     local g1_Toggle_1 = game1:CreateToggle({
@@ -166,7 +166,7 @@ if game_name == "Blox Fruits" then
         CurrentValue = false,
         Flag = "g1_toggle_1",
         Callback = function(Value)
-            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+            loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
         end
         })
     local g1_Divider_1 = game1:CreateDivider()
