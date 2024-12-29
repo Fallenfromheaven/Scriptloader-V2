@@ -4,6 +4,7 @@ local Players = game:GetService("Players")
 local player  = Players.LocalPlayer
 local UID     = player.UserId
 
+
 local whitelisted_players = {
     [7638241013] = true,
     [7643960984] = true,
@@ -20,7 +21,7 @@ local gamePlaceIDs = {
 local function resolveGameNameByPlaceID(placeId)
     for gameName, placeIDs in pairs(gamePlaceIDs) do
         for _, id in ipairs(placeIDs) do
-            if id == placeID then
+            if id == placeId then
                 return gameName
             end
         end
@@ -28,7 +29,7 @@ local function resolveGameNameByPlaceID(placeId)
     return nil
 end
 
-local game = resolveGameNameByPlaceID(placeID)
+local game_name = resolveGameNameByPlaceID(placeId)
 
 local Window = Rayfield:CreateWindow({
    Name = "Scriptloader",
@@ -46,7 +47,6 @@ local Window = Rayfield:CreateWindow({
       FileName = "loader-data"
    }
 })
-
 local Universal = Window:CreateTab("Universal", 4483362458)
 
 if whitelisted_players[UID] then
@@ -150,7 +150,7 @@ local u_Toggle_5 = Universal:CreateToggle({
 })
 local u_Divider_5 = Universal:CreateDivider()
 
-if game = "Blox Fruits" then
+if game_name == "Blox Fruits" then
 
     local game1 = Window:CreateTab("Blox Fruits", 4483362458)
 
@@ -170,5 +170,5 @@ if game = "Blox Fruits" then
         end
         })
     local g1_Divider_1 = game1:CreateDivider()
-
+end
 Rayfield:LoadConfiguration()
