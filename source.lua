@@ -15,7 +15,8 @@ local whitelisted_players = {
 local gamePlaceIDs = {
     ["Blox Fruits"] = {2753915549, 4442272183, 7449423635},
     ["Break in 2"]  = {13864661000, 13864667823},
-    ["Fisch"]       = {16732694052}
+    ["Fisch"]       = {16732694052},
+    ["Pets Go!"]    = {18901165922}
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -252,6 +253,28 @@ if game_name == "Fisch" then
             })
         local g3_Divider_2 = game3:CreateDivider
     end
+end
+
+if game_name == "Pets Go!" then
+
+    local game4 = Window:CreateTab("Pets Go!", 4483362458)
+
+    local g4_Section_1 = game4:CreateSection("Banana Hub")
+    local g4_Button_1 = game4:CreateButton({
+        Name = "Banana Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/diepedyt/bui/refs/heads/main/BananaHubLoader.lua"))()
+        end
+        })
+    local g4_Toggle_1 = game4:CreateToggle({
+        Name = "Banana Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g4_toggle_1",
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/diepedyt/bui/refs/heads/main/BananaHubLoader.lua"))()
+        end
+        })
+    local g4_Divider_1 = game4:CreateDivider()
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
