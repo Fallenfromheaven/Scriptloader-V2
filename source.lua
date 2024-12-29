@@ -14,7 +14,7 @@ local whitelisted_players = {
 
 local gamePlaceIDs = {
     ["Blox Fruits"] = {2753915549, 4442272183, 7449423635},
-    -- ["Game2"] = {4567890123, 5678901234},
+    ["Break in 2"]  = {13864661000, 13864667823},
     -- ["Game3"] = {6789012345}
 }
 
@@ -187,6 +187,28 @@ if game_name == "Blox Fruits" then
         end
         })
     local g1_Divider_2 = game1:CreateDivider()
+end
+
+if game_name == "Break in 2" then
+
+    local game2 = Window:CreateTab("Break in 2", 4483362458)
+
+    local g2_Section_1 = game2:CreateSection("Breaking Blitz")
+    local g2_Button_1 = game2:CreateButton({
+        Name = "Breaking Blitz",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/BreakIn2.lua"))()
+        end
+        })
+    local g2_Toggle_1 = game2:CreateToggle({
+        Name = "Breaking Blitz Auto-execute",
+        CurrentValue = false,
+        Flag = "g2_toggle_1",
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/BreakIn2.lua"))()
+        end
+        })
+    local g2_Divider_1 = game2:CreateDivider()
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
