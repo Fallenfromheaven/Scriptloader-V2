@@ -11,6 +11,25 @@ local whitelisted_players = {
     [6035836892] = true
 }
 
+local gamePlaceIDs = {
+    ["Blox Fruits"] = {2753915549, 4442272183, 7449423635},
+    -- ["Game2"] = {4567890123, 5678901234},
+    -- ["Game3"] = {6789012345}
+}
+
+local function resolveGameNameByPlaceID(placeID)
+    for gameName, placeIDs in pairs(gamePlaceIDs) do
+        for _, id in ipairs(placeIDs) do
+            if id == placeID then
+                return gameName
+            end
+        end
+    end
+    return nil
+end
+
+local game = resolveGameNameByPlaceID(placeID)
+
 local Window = Rayfield:CreateWindow({
    Name = "Scriptloader",
    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
@@ -130,5 +149,26 @@ local u_Toggle_5 = Universal:CreateToggle({
     end
 })
 local u_Divider_5 = Universal:CreateDivider()
+
+if game = "Blox Fruits" then
+
+    local game1 = Window:CreateTab("Blox Fruits", 4483362458)
+
+    local g1_Section_1 = game1:CreateSection("Quartyz Hub")
+    local g1_Button_1 = game1:CreateButton({
+        Name = "Quartyz Hub",
+        Callback = function()
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        end
+        })
+    local g1_Toggle_1 = game1:CreateToggle({
+        Name = "Quartyz Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g1_toggle_1",
+        Callback = function(Value)
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        end
+        })
+    local g1_Divider_1 = game1:CreateDivider()
 
 Rayfield:LoadConfiguration()
