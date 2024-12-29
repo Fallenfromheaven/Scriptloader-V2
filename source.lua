@@ -170,5 +170,22 @@ if game_name == "Blox Fruits" then
         end
         })
     local g1_Divider_1 = game1:CreateDivider()
+
+    local g1_Section_2 = game1:CreateSection("Redz Hub")
+    local g1_Button_2 = game1:CreateButton({
+        Name = "Redz Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+        end
+        })
+    local g1_Toggle_2 = game1:CreateToggle({
+        Name = "Redz Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g1_toggle_2",
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+        end
+        })
+    local g1_Divider_2 = game1:CreateDivider()
 end
 Rayfield:LoadConfiguration()
