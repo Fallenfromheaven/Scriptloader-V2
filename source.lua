@@ -85,15 +85,15 @@ local u_Toggle_3 = Universal:CreateToggle({
 })
 local u_Divider_3 = Universal:CreateDivider()
 
-local u_Section_4 = Universal:CreateSection("Infinit Yield")
+local u_Section_4 = Universal:CreateSection("Chat Bypass")
 local u_Button_4 = Universal:CreateButton({
-    Name = "Infinit Yield",
+    Name = "Chat Bypass",
     Callback = function()
         loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
     end
 })
 local u_Toggle_4 = Universal:CreateToggle({
-    Name = "Infinit Yield Auto-execute",
+    Name = "Chat Bypass Auto-execute",
     CurrentValue = false,
     Flag = "u_toggle_4",
     Callback = function(Value)
