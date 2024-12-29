@@ -188,4 +188,16 @@ if game_name == "Blox Fruits" then
         })
     local g1_Divider_2 = game1:CreateDivider()
 end
+
+local settings_ = Window:CreateTab("Settings", 4483362458)
+
+local s_Section_1 = settings_:CreateSection("Settings")
+local s_Button_1 = settings_:CreateButton({
+    Name = "Delete GUI",
+    Callback = function()
+        Rayfield:Destroy()
+    end
+    })
+local s_Divider_1 = settings_:CreateDivider()
+
 Rayfield:LoadConfiguration()
