@@ -89,7 +89,7 @@ local u_Section_4 = Universal:CreateSection("Chat Bypass")
 local u_Button_4 = Universal:CreateButton({
     Name = "Chat Bypass",
     Callback = function()
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
     end
 })
 local u_Toggle_4 = Universal:CreateToggle({
@@ -97,7 +97,7 @@ local u_Toggle_4 = Universal:CreateToggle({
     CurrentValue = false,
     Flag = "u_toggle_4",
     Callback = function(Value)
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
     end
 })
 local u_Divider_4 = Universal:CreateDivider()
