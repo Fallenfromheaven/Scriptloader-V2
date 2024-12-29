@@ -17,7 +17,7 @@ local gamePlaceIDs = {
     -- ["Game3"] = {6789012345}
 }
 
-local function resolveGameNameByPlaceID(placeID)
+local function resolveGameNameByPlaceID(placeId)
     for gameName, placeIDs in pairs(gamePlaceIDs) do
         for _, id in ipairs(placeIDs) do
             if id == placeID then
