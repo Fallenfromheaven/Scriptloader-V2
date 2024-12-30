@@ -251,7 +251,7 @@ if game_name == "Fisch" then
                 loadstring(game:HttpGet("https://api.flow-hub.xyz/loader"))()
             end
             })
-        local g3_Divider_2 = game3:CreateDivider
+        local g3_Divider_2 = game3:CreateDivider()
     end
 end
 
