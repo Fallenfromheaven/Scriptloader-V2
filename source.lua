@@ -16,7 +16,8 @@ local gamePlaceIDs = {
     ["Blox Fruits"] = {2753915549, 4442272183, 7449423635},
     ["Break in 2"]  = {13864661000, 13864667823},
     ["Fisch"]       = {16732694052},
-    ["Pets Go!"]    = {18901165922}
+    ["Pets Go!"]    = {18901165922},
+    ["NPC OR DIE!"] = {11276071411}
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -276,6 +277,29 @@ if game_name == "Pets Go!" then
         })
     local g4_Divider_1 = game4:CreateDivider()
 end
+
+if game_name == "NPC OR DIE!" then
+
+    local game5 = Window:CreateTab("NPC OR DIE!", 4483362458)
+
+    local g5_Section_1 = game5:CreateSection("Arceusx Hub")
+    local g5_Button_1 = game5:CreateButton({
+        Name = "Arceusx Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/diepedyt/bui/refs/heads/main/BananaHubLoader.lua"))()
+        end
+        })
+    local g5_Toggle_1 = game5:CreateToggle({
+        Name = "Arceusx Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g5_toggle_1",
+        Callback = function(Value)
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/diepedyt/bui/refs/heads/main/BananaHubLoader.lua"))()
+        end
+        })
+    local g5_Divider_1 = game5:CreateDivider()
+end
+
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
 
