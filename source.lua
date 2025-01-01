@@ -361,4 +361,6 @@ local s_Button_1 = settings_:CreateButton({
     })
 local s_Divider_1 = settings_:CreateDivider()
 
+queue_on_teleport("task.wait(15)loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/loader.lua'))()")
+
 Rayfield:LoadConfiguration()
