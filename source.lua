@@ -18,7 +18,8 @@ local gamePlaceIDs = {
     ["Fisch"]            = {16732694052},
     ["Pets Go!"]         = {18901165922},
     ["NPC OR DIE!"]      = {11276071411},
-    ["Murder Mystery 2"] = {142823291}
+    ["Murder Mystery 2"] = {142823291},
+    ["Blade Ball"]       = {13772394625,14732610803,15131065025,15234596844,16331600459,15144787112}
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -321,6 +322,32 @@ if game_name == "Murder Mystery 2" then
         end
         })
     local g6_Divider_1 = game6:CreateDivider()
+end
+
+if game_name == "Blade Ball" then
+
+    local game7 = Window:CreateTab("Blade Ball", 4483362458)
+
+    if whitelisted_players[UID] then
+        local g7_Section_1 = game7:CreateSection("Byte - 2025")
+        local g7_Button_1 = game7:CreateButton({
+            Name = "Byte - 2025",
+            Callback = function()
+                getgenv().Key = 'd5d0e9c811dcd74c1a6e61895384660439c587717b84411f3c4c09bdf0cb51aa'
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
+            end
+            })
+        local g7_Toggle_1 = game7:CreateToggle({
+            Name = "Byte - 2025 Auto-execute",
+            CurrentValue = false,
+            Flag = "g7_toggle_1",
+            Callback = function(Value)
+                getgenv().Key = 'd5d0e9c811dcd74c1a6e61895384660439c587717b84411f3c4c09bdf0cb51aa'
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
+            end
+            })
+        local g7_Divider_1 = game7:CreateDivider()
+    end
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
