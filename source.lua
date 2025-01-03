@@ -67,8 +67,10 @@ if whitelisted_players[UID] then
         CurrentValue = false,
         Flag = "u_toggle_1",
         Callback = function(Value)
-            script_key="NQsRcBXEQcjlzKnHblaTomNdtmafHNfa"
-    		loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/d416a9fb566c94cba596550ef09d256b.lua"))()
+            if Rayfield.Flags["u_toggle_1"].CurrentValue then
+                script_key="NQsRcBXEQcjlzKnHblaTomNdtmafHNfa"
+    		    loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/d416a9fb566c94cba596550ef09d256b.lua"))()
+            end
         end
     })
     local u_Divider_1 = Universal:CreateDivider()
@@ -86,7 +88,9 @@ local u_Toggle_2 = Universal:CreateToggle({
     CurrentValue = false,
     Flag = "u_toggle_2",
     Callback = function(Value)
-        loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        if Rayfield.Flags["u_toggle_2"].CurrentValue then
+            loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+        end
     end
 })
 local u_Divider_2 = Universal:CreateDivider()
@@ -103,7 +107,9 @@ local u_Toggle_3 = Universal:CreateToggle({
     CurrentValue = false,
     Flag = "u_toggle_3",
     Callback = function(Value)
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/refs/heads/main/Versions%202/V3.7.3.txt", true))()
+        if Rayfield.Flags["u_toggle_3"].CurrentValue then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/refs/heads/main/Versions%202/V3.7.3.txt", true))()
+        end
     end
 })
 local u_Divider_3 = Universal:CreateDivider()
@@ -120,7 +126,9 @@ local u_Toggle_4 = Universal:CreateToggle({
     CurrentValue = false,
     Flag = "u_toggle_4",
     Callback = function(Value)
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
+        if Rayfield.Flags["u_toggle_4"].CurrentValue then
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Synergy-Networks/products/main/BetterBypasser/loader.lua",true))()
+        end
     end
 })
 local u_Divider_4 = Universal:CreateDivider()
@@ -143,13 +151,15 @@ local u_Toggle_5 = Universal:CreateToggle({
     CurrentValue = false,
     Flag = "u_toggle_5",
     Callback = function(Value)
-        local Params = {
-        RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
-        SSI = "saveinstance",
-        }
-        local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
-        local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
-        synsaveinstance(Options)
+        if Rayfield.Flags["u_toggle_5"].CurrentValue then
+            local Params = {
+            RepoURL = "https://raw.githubusercontent.com/luau/SynSaveInstance/main/",
+            SSI = "saveinstance",
+            }
+            local synsaveinstance = loadstring(game:HttpGet(Params.RepoURL .. Params.SSI .. ".luau", true), Params.SSI)()
+            local Options = {} -- Documentation here https://luau.github.io/UniversalSynSaveInstance/api/SynSaveInstance
+            synsaveinstance(Options)
+        end
     end
 })
 local u_Divider_5 = Universal:CreateDivider()
