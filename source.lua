@@ -359,7 +359,7 @@ if game_name == "Blade Ball" then
         local g7_Button_1 = game7:CreateButton({
             Name = "Byte - 2025",
             Callback = function()
-                getgenv().Key = 'd5d0e9c811dcd74c1a6e61895384660439c587717b84411f3c4c09bdf0cb51aa'
+                getgenv().Key = '120312-3u2132-138213138-12382701831237823713-1317293'
                 loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
             end
             })
@@ -369,7 +369,7 @@ if game_name == "Blade Ball" then
             Flag = "g7_toggle_1",
             Callback = function(Value)
                 if Rayfield.Flags["g7_toggle_1"].CurrentValue then
-                    getgenv().Key = 'd5d0e9c811dcd74c1a6e61895384660439c587717b84411f3c4c09bdf0cb51aa'
+                    getgenv().Key = '120312-3u2132-138213138-12382701831237823713-1317293'
                     loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
                 end
             end
