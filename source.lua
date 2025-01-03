@@ -180,7 +180,9 @@ if game_name == "Blox Fruits" then
         CurrentValue = false,
         Flag = "g1_toggle_1",
         Callback = function(Value)
-            loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+            if Rayfield.Flags["g1_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet"https://raw.githubusercontent.com/xQuartyx/DonateMe/main/ScriptLoader")()
+            end
         end
         })
     local g1_Divider_1 = game1:CreateDivider()
@@ -197,7 +199,9 @@ if game_name == "Blox Fruits" then
         CurrentValue = false,
         Flag = "g1_toggle_2",
         Callback = function(Value)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+            if Rayfield.Flags["g1_toggle_2"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+            end
         end
         })
     local g1_Divider_2 = game1:CreateDivider()
@@ -219,7 +223,9 @@ if game_name == "Break in 2" then
         CurrentValue = false,
         Flag = "g2_toggle_1",
         Callback = function(Value)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/BreakIn2.lua"))()
+            if Rayfield.Flags["g2_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/RScriptz/RobloxScripts/main/BreakIn2.lua"))()
+            end
         end
         })
     local g2_Divider_1 = game2:CreateDivider()
@@ -241,7 +247,9 @@ if game_name == "Fisch" then
         CurrentValue = false,
         Flag = "g3_toggle_1",
         Callback = function(Value)
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/xZPUHigh/Spectrum-Cloud/main/Loader.lua'))()
+            if Rayfield.Flags["g3_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/xZPUHigh/Spectrum-Cloud/main/Loader.lua'))()
+            end
         end
         })
     local g3_Divider_1 = game3:CreateDivider()
@@ -260,8 +268,10 @@ if game_name == "Fisch" then
             CurrentValue = false,
             Flag = "g3_toggle_2",
             Callback = function(Value)
-                script_key="sYpQSjImhYYNzIWKDEruPFVRUAlixnXc";
-                loadstring(game:HttpGet("https://api.flow-hub.xyz/loader"))()
+                if Rayfield.Flags["g3_toggle_2"].CurrentValue then
+                    script_key="sYpQSjImhYYNzIWKDEruPFVRUAlixnXc";
+                    loadstring(game:HttpGet("https://api.flow-hub.xyz/loader"))()
+                end
             end
             })
         local g3_Divider_2 = game3:CreateDivider()
@@ -284,7 +294,9 @@ if game_name == "Pets Go!" then
         CurrentValue = false,
         Flag = "g4_toggle_1",
         Callback = function(Value)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/diepedyt/bui/refs/heads/main/BananaHubLoader.lua"))()
+            if Rayfield.Flags["g4_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/diepedyt/bui/refs/heads/main/BananaHubLoader.lua"))()
+            end
         end
         })
     local g4_Divider_1 = game4:CreateDivider()
@@ -306,7 +318,9 @@ if game_name == "NPC OR DIE!" then
         CurrentValue = false,
         Flag = "g5_toggle_1",
         Callback = function(Value)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BeNpcOrDie"))("t.me/arceusxscripts")
+            if Rayfield.Flags["g5_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Bac0nHck/Scripts/main/BeNpcOrDie"))("t.me/arceusxscripts")
+            end
         end
         })
     local g5_Divider_1 = game5:CreateDivider()
@@ -328,7 +342,9 @@ if game_name == "Murder Mystery 2" then
         CurrentValue = false,
         Flag = "g6_toggle_1",
         Callback = function(Value)
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
+            if Rayfield.Flags["g6_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/s-o-a-b/nexus/main/loadstring"))()
+            end
         end
         })
     local g6_Divider_1 = game6:CreateDivider()
@@ -352,8 +368,10 @@ if game_name == "Blade Ball" then
             CurrentValue = false,
             Flag = "g7_toggle_1",
             Callback = function(Value)
-                getgenv().Key = 'd5d0e9c811dcd74c1a6e61895384660439c587717b84411f3c4c09bdf0cb51aa'
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
+                if Rayfield.Flags["g7_toggle_1"].CurrentValue then
+                    getgenv().Key = 'd5d0e9c811dcd74c1a6e61895384660439c587717b84411f3c4c09bdf0cb51aa'
+                    loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
+                end
             end
             })
         local g7_Divider_1 = game7:CreateDivider()
