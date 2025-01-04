@@ -20,6 +20,7 @@ local gamePlaceIDs = {
     ["NPC OR DIE!"]      = {11276071411},
     ["Murder Mystery 2"] = {142823291},
     ["Blade Ball"]       = {13772394625,14732610803,15131065025,15234596844,16331600459,15144787112,15264892126,16581637217,16581648071}
+    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018}
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -375,6 +376,23 @@ if game_name == "Blade Ball" then
             end
             })
         local g7_Divider_1 = game7:CreateDivider()
+    end
+end
+
+if game_name == "Jujutsu Infinite" then
+
+    local game8 = Window:CreateTab("Jujutsu Infinite", 4483362458)
+
+    if whitelisted_players[UID] then
+        local g8_Section_1 = game8:CreateSection("Lyoris")
+        local g8_Button_1 = game8:CreateButton({
+            Name = "Byte - 2025",
+            Callback = function()
+                script_key="yZEepBBCVYQQiPNiQXONXMbaTOMLRvtQ";
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9c1ecb61da02bfd33c5bc251f6a32d1e.lua"))()
+            end
+            })
+        local g8_Divider_1 = game8:CreateDivider()
     end
 end
 
