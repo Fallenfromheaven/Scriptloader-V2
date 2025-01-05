@@ -100,6 +100,7 @@ local u_Section_3 = Universal:CreateSection("Plutonium Hub")
 local u_Button_3 = Universal:CreateButton({
     Name = "Plutonium Hub",
     Callback = function()
+        print"YOOOO"
         loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/refs/heads/main/Versions%202/V3.7.3.txt", true))()
     end
 })
@@ -109,6 +110,7 @@ local u_Toggle_3 = Universal:CreateToggle({
     Flag = "u_toggle_3",
     Callback = function(Value)
         if Rayfield.Flags["u_toggle_3"].CurrentValue then
+            print"hey am very cool yk"
             loadstring(game:HttpGet("https://raw.githubusercontent.com/PawsThePaw/Plutonium.AA/refs/heads/main/Versions%202/V3.7.3.txt", true))()
         end
     end
