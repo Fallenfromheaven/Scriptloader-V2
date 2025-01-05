@@ -402,6 +402,7 @@ if game_name == "Jujutsu Infinite" then
             Callback = function()
                 script_key="ZRLDelGwrpBVydXSMJQdjAkzGwFvSqcH";
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/VexiumInternal/VexiumHub/main/Loader"))()
+            end
             })
         local g8_Divider_2 = game8:CreateDivider()
     end
