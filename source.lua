@@ -20,7 +20,7 @@ local gamePlaceIDs = {
     ["NPC OR DIE!"]      = {11276071411},
     ["Murder Mystery 2"] = {142823291},
     ["Blade Ball"]       = {13772394625,14732610803,15131065025,15234596844,16331600459,15144787112,15264892126,16581637217,16581648071},
-    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837} -- Missing certain placeid's will be added  
+    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339} -- Missing certain placeid's will be added  
 }
 
 local function resolveGameNameByPlaceID(placeId)
