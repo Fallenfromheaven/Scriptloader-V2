@@ -405,7 +405,7 @@ if game_name == "Jujutsu Infinite" then
             end
             })
         local g8_Toggle_1 = game8:CreateToggle({
-            Name = "Vexium Hub Auto-execute",
+            Name = "Vexium Hub (turn off in auto boss / inves ) Auto-execute",
             CurrentValue = false,
             Flag = "g8_toggle_1",
             Callback = function(Value)
