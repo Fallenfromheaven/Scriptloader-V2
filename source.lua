@@ -20,7 +20,7 @@ local gamePlaceIDs = {
     ["NPC OR DIE!"]      = {11276071411},
     ["Murder Mystery 2"] = {142823291},
     ["Blade Ball"]       = {13772394625,14732610803,15131065025,15234596844,16331600459,15144787112,15264892126,16581637217,16581648071},
-    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339,17677080566} -- Missing certain placeid's will be added  
+    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339,17677080566,17677081746} -- Missing certain placeid's will be added  
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -402,6 +402,17 @@ if game_name == "Jujutsu Infinite" then
             Callback = function()
                 script_key="ZRLDelGwrpBVydXSMJQdjAkzGwFvSqcH";
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/VexiumInternal/VexiumHub/main/Loader"))()
+            end
+            })
+        local g8_Toggle_1 = game7:CreateToggle({
+            Name = "Vexium Hub Auto-execute",
+            CurrentValue = false,
+            Flag = "g8_toggle_1",
+            Callback = function(Value)
+                if Rayfield.Flags["g8_toggle_1"].CurrentValue then
+                    script_key="ZRLDelGwrpBVydXSMJQdjAkzGwFvSqcH";
+                    loadstring(game:HttpGet("https://raw.githubusercontent.com/VexiumInternal/VexiumHub/main/Loader"))()
+                end
             end
             })
         local g8_Divider_2 = game8:CreateDivider()
