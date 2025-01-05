@@ -404,7 +404,7 @@ if game_name == "Jujutsu Infinite" then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/VexiumInternal/VexiumHub/main/Loader"))()
             end
             })
-        local g8_Toggle_1 = game7:CreateToggle({
+        local g8_Toggle_1 = game8:CreateToggle({
             Name = "Vexium Hub Auto-execute",
             CurrentValue = false,
             Flag = "g8_toggle_1",
