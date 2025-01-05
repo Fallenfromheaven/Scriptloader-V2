@@ -9,7 +9,8 @@ local whitelisted_players = {
     [7638241013] = true,
     [7643960984] = true,
     [7655662062] = true,
-    [6035836892] = true
+    [6035836892] = true,
+    [4410855410] = true
 }
 
 local gamePlaceIDs = {
