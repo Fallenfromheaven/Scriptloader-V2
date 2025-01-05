@@ -394,6 +394,17 @@ if game_name == "Jujutsu Infinite" then
             })
         local g8_Divider_1 = game8:CreateDivider()
     end
+
+    if whitelisted_players[UID] then
+        local g8_Section_2 = game8:CreateSection("Vexium Hub")
+        local g8_Button_2 = game8:CreateButton({
+            Name = "Vexium Hub",
+            Callback = function()
+                script_key="ZRLDelGwrpBVydXSMJQdjAkzGwFvSqcH";
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/VexiumInternal/VexiumHub/main/Loader"))()
+            })
+        local g8_Divider_2 = game8:CreateDivider()
+    end
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
