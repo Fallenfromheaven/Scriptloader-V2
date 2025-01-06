@@ -431,6 +431,16 @@ local s_Button_1 = settings_:CreateButton({
         Rayfield:Destroy()
     end
     })
+local s_Toggle_1 = settings:CreateToggle({
+    Name = "Queue on Teleport (will be queued 1 last time on disable)",
+    CurrentValue = false,
+    Flag = "s_toggle_1",
+    Callback = function(Value)
+        if Rayfield.Flags["s_toggle_1"].CurrentValue then
+            
+        end
+    end
+    })
 local s_Divider_1 = settings_:CreateDivider()
 
 Rayfield:LoadConfiguration()
