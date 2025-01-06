@@ -431,7 +431,7 @@ local s_Button_1 = settings_:CreateButton({
         Rayfield:Destroy()
     end
     })
-local s_Toggle_1 = settings:CreateToggle({
+local s_Toggle_1 = settings_:CreateToggle({
     Name = "Queue on Teleport (will be queued 1 last time on disable)",
     CurrentValue = true,
     Flag = "s_toggle_1",
