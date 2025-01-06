@@ -433,7 +433,7 @@ local s_Button_1 = settings_:CreateButton({
     })
 local s_Toggle_1 = settings:CreateToggle({
     Name = "Queue on Teleport (will be queued 1 last time on disable)",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "s_toggle_1",
     Callback = function(Value)
         if Rayfield.Flags["s_toggle_1"].CurrentValue then
