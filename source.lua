@@ -21,7 +21,8 @@ local gamePlaceIDs = {
     ["NPC OR DIE!"]      = {11276071411},
     ["Murder Mystery 2"] = {142823291},
     ["Blade Ball"]       = {13772394625,14732610803,15131065025,15234596844,16331600459,15144787112,15264892126,16581637217,16581648071},
-    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339,17677080566,17677081746} -- Missing certain placeid's, they will be added  
+    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339,17677080566,17677081746} -- Missing certain placeid's, they will be added
+    ["Slab Battles"]     = {6403373529}
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -420,6 +421,30 @@ if game_name == "Jujutsu Infinite" then
             })
         local g8_Divider_2 = game8:CreateDivider()
     end
+end
+
+if game_name == "Slab Battles" then
+
+    local game2 = Window:CreateTab("Slab Battles", 4483362458)
+
+    local g2_Section_1 = game2:CreateSection("Forge Hub")
+    local g2_Button_1 = game2:CreateButton({
+        Name = "Forge Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+        end
+        })
+    local g2_Toggle_1 = game2:CreateToggle({
+        Name = "Forge Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g2_toggle_1",
+        Callback = function(Value)
+            if Rayfield.Flags["g2_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
+            end
+        end
+        })
+    local g2_Divider_1 = game2:CreateDivider()
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
