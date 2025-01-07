@@ -425,26 +425,26 @@ end
 
 if game_name == "Slab Battles" then
 
-    local game2 = Window:CreateTab("Slab Battles", 4483362458)
+    local game9 = Window:CreateTab("Slab Battles", 4483362458)
 
-    local g2_Section_1 = game2:CreateSection("Forge Hub")
-    local g2_Button_1 = game2:CreateButton({
+    local g9_Section_1 = game9:CreateSection("Forge Hub")
+    local g9_Button_1 = game9:CreateButton({
         Name = "Forge Hub",
         Callback = function()
             loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
         end
         })
-    local g2_Toggle_1 = game2:CreateToggle({
+    local g9_Toggle_1 = game9:CreateToggle({
         Name = "Forge Hub Auto-execute",
         CurrentValue = false,
-        Flag = "g2_toggle_1",
+        Flag = "g9_toggle_1",
         Callback = function(Value)
-            if Rayfield.Flags["g2_toggle_1"].CurrentValue then
+            if Rayfield.Flags["g9_toggle_1"].CurrentValue then
                 loadstring(game:HttpGet("https://raw.githubusercontent.com/Skzuppy/forge-hub/main/loader.lua"))()
             end
         end
         })
-    local g2_Divider_1 = game2:CreateDivider()
+    local g9_Divider_1 = game9:CreateDivider()
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
