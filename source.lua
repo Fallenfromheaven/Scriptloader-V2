@@ -461,7 +461,7 @@ local s_Toggle_1 = settings_:CreateToggle({
     CurrentValue = true,
     Flag = "s_toggle_1",
     Callback = function(Value)
-        task.wait(0.5)
+        task.wait(0.1)
         if Rayfield.Flags["s_toggle_1"].CurrentValue then
             print("NIGGA")
             queue_on_teleport("task.wait(15)loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/source.lua'))()")
