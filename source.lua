@@ -462,6 +462,7 @@ local s_Toggle_1 = settings_:CreateToggle({
     CurrentValue = true,
     Flag = "s_toggle_1",
     Callback = function(Value)
+        print(Rayfield.Flags["s_toggle_1"].CurrentValue)
         task.wait(0.5)
         if Rayfield.Flags["s_toggle_1"].CurrentValue then
             print("NIGGA")
