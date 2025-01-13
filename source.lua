@@ -365,8 +365,8 @@ if game_name == "Blade Ball" then
         local g7_Button_1 = game7:CreateButton({
             Name = "Byte - 2025",
             Callback = function()
-                getgenv().Key = '120312-3u2132-138213138-12382701831237823713-1317293'
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
+                script_key="XNxoqoSCOcRYAsjkGCtlokBSpmAmmvtg";
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9f4f1b58db2ea0c9da9ec077e56c57ea.lua"))()
             end
             })
         local g7_Toggle_1 = game7:CreateToggle({
@@ -375,8 +375,8 @@ if game_name == "Blade Ball" then
             Flag = "g7_toggle_1",
             Callback = function(Value)
                 if Rayfield.Flags["g7_toggle_1"].CurrentValue then
-                    getgenv().Key = '120312-3u2132-138213138-12382701831237823713-1317293'
-                    loadstring(game:HttpGet('https://raw.githubusercontent.com/LuauCloud/Byte/refs/heads/main/Blade%20Ball/Ts.lua'))()
+                    script_key="XNxoqoSCOcRYAsjkGCtlokBSpmAmmvtg";
+                    loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9f4f1b58db2ea0c9da9ec077e56c57ea.lua"))()
                 end
             end
             })
