@@ -459,7 +459,7 @@ local s_Button_1 = settings_:CreateButton({
     })
 local s_Toggle_1 = settings_:CreateToggle({
     Name = "Queue on Teleport",
-    CurrentValue = true,
+    CurrentValue = false,
     Flag = "s_toggle_1",
     Callback = function(Value)
         print(Rayfield.Flags["s_toggle_1"].CurrentValue)
