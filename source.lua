@@ -22,8 +22,9 @@ local gamePlaceIDs = {
     ["NPC OR DIE!"]      = {11276071411},
     ["Murder Mystery 2"] = {142823291},
     ["Blade Ball"]       = {13772394625,14732610803,15131065025,15234596844,16331600459,15144787112,15264892126,16581637217,16581648071},
-    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339,17677080566,17677081746}, -- Missing certain placeid's, they will be added
-    ["Slab Battles"]     = {6403373529} -- maybe missing place ids idk
+    ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339,17677080566,17677081746}, -- should be all idk
+    ["Slab Battles"]     = {6403373529}, -- maybe missing place ids idk
+    ["Combat Warriors"]  = {4282985734, 11979315221, 9532476417, 16323991061, 18480127448, 18480122340}
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -446,6 +447,30 @@ if game_name == "Slab Battles" then
         end
         })
     local g9_Divider_1 = game9:CreateDivider()
+end
+
+if game_name == "Combat Warriors" then
+
+    local game10 = Window:CreateTab("Combat Warriors", 4483362458)
+
+    local g10_Section_1 = game10:CreateSection("Stratos Hub")
+    local g10_Button_1 = game10:CreateButton({
+        Name = "Stratos Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/HeroReaII/asda213/refs/heads/main/uhmwhatthesigma.lua"))()
+        end
+        })
+    local g10_Toggle_1 = game10:CreateToggle({
+        Name = "Stratos Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g10_toggle_1",
+        Callback = function(Value)
+            if Rayfield.Flags["g10_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/HeroReaII/asda213/refs/heads/main/uhmwhatthesigma.lua"))()
+            end
+        end
+        })
+    local g10_Divider_1 = game9:CreateDivider()
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
