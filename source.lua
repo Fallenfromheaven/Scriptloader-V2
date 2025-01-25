@@ -25,6 +25,7 @@ local gamePlaceIDs = {
     ["Jujutsu Infinite"] = {10450270085,119359147980471,78904562518018,16379688837,16379684339,17677080566,17677081746}, -- should be all idk
     ["Slab Battles"]     = {6403373529}, -- maybe missing place ids idk
     ["Combat Warriors"]  = {4282985734, 11979315221, 9532476417, 16323991061, 18480127448, 18480122340},
+    ["KAT"]              = {621129760},
     ["TSB"]              = {10449761463, 131048399685555, 130818724007978, 12360882630, 10449761463}
 }
 
@@ -471,8 +472,33 @@ if game_name == "Combat Warriors" then
             end
         end
         })
-    local g10_Divider_1 = game9:CreateDivider()
+    local g10_Divider_1 = game10:CreateDivider()
 end
+
+if game_name == "Kat" then
+
+    local game11 = Window:CreateTab("Kat", 4483362458)
+
+    local g11_Section_1 = game11:CreateSection("Kat Script")
+    local g11_Button_1 = game11:CreateButton({
+        Name = "Kat Script",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/zReal-King/Knife-Ability-Test/main/Gui'))()
+        end
+        })
+    local g11_Toggle_1 = game11:CreateToggle({
+        Name = "Kat Script Auto-execute",
+        CurrentValue = false,
+        Flag = "g11_toggle_1",
+        Callback = function(Value)
+            if Rayfield.Flags["g11_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/zReal-King/Knife-Ability-Test/main/Gui'))()
+            end
+        end
+        })
+    local g11_Divider_1 = game11:CreateDivider()
+end
+
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
 
@@ -489,7 +515,7 @@ local s_Toggle_1 = settings_:CreateToggle({
     Flag = "s_toggle_1",
     Callback = function(Value)
         if Rayfield.Flags["s_toggle_1"].CurrentValue then
-            queue_on_teleport("task.wait(15)loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/source.lua'))()")
+            queue_on_teleport("task.wait(10)loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/source.lua'))()")
         end
     end
     })
