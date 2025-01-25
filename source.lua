@@ -499,6 +499,43 @@ if game_name == "Kat" then
     local g11_Divider_1 = game11:CreateDivider()
 end
 
+if game_name == "TSB" then
+
+    local game12 = Window:CreateTab("TSB", 4483362458)
+
+    local g12_Section_1 = game12:CreateSection("Oni Hub")
+    local g12_Button_1 = game12:CreateButton({
+        Name = "Oni Hub",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/OniHub-Revived/refs/heads/main/OnihubRevamped"))()
+        end
+        })
+    local g12_Toggle_1 = game12:CreateToggle({
+        Name = "Oni Hub Auto-execute",
+        CurrentValue = false,
+        Flag = "g12_toggle_1",
+        Callback = function(Value)
+            if Rayfield.Flags["g12_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/OniHub-Revived/refs/heads/main/OnihubRevamped"))()
+            end
+        end
+        })
+    local g12_Divider_1 = game12:CreateDivider()
+    local g12_Button_2 = game12:CreateButton({
+        Name = "Gojo Moveset (nur Visuell)",
+        Callback = function()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/OniHub-Gojo-Public/refs/heads/main/Gojo%20Onihub%20Public.txt"))()
+        end
+        })
+    local g12_Divider_2 = game12:CreateDivider()
+    local g12_Button_3 = game12:CreateButton({
+        Name = "Yuji Moveset (nur Visuell)",
+        Callback = function()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/Onihub-Itadori/refs/heads/main/Itadori%20Onihub%20Public.txt"))()
+        end
+        })
+    local g12_Divider_3 = game12:CreateDivider()
+end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
 
