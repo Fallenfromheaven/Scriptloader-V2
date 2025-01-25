@@ -196,20 +196,20 @@ if game_name == "Blox Fruits" then
         })
     local g1_Divider_1 = game1:CreateDivider()
 
-    local g1_Section_2 = game1:CreateSection("Redz Hub")
+    local g1_Section_2 = game1:CreateSection("Hoho Hub")
     local g1_Button_2 = game1:CreateButton({
-        Name = "Redz Hub",
+        Name = "Hoho Hub",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
         end
         })
     local g1_Toggle_2 = game1:CreateToggle({
-        Name = "Redz Hub Auto-execute",
+        Name = "Hoho Hub Auto-execute",
         CurrentValue = false,
         Flag = "g1_toggle_2",
         Callback = function(Value)
             if Rayfield.Flags["g1_toggle_2"].CurrentValue then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/realredz/BloxFruits/refs/heads/main/Source.lua"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/acsu123/HOHO_H/main/Loading_UI"))()
             end
         end
         })
