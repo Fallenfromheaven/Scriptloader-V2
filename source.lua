@@ -368,7 +368,7 @@ if game_name == "Blade Ball" then
         local g7_Button_1 = game7:CreateButton({
             Name = "Byte - 2025",
             Callback = function()
-                script_key="XNxoqoSCOcRYAsjkGCtlokBSpmAmmvtg";
+                script_key="TCxOCInrqgVTicdxGADLhoeUxZhEIDcW";
                 loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9f4f1b58db2ea0c9da9ec077e56c57ea.lua"))()
             end
             })
@@ -378,7 +378,7 @@ if game_name == "Blade Ball" then
             Flag = "g7_toggle_1",
             Callback = function(Value)
                 if Rayfield.Flags["g7_toggle_1"].CurrentValue then
-                    script_key="XNxoqoSCOcRYAsjkGCtlokBSpmAmmvtg";
+                    script_key="TCxOCInrqgVTicdxGADLhoeUxZhEIDcW";
                     loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/9f4f1b58db2ea0c9da9ec077e56c57ea.lua"))()
                 end
             end
