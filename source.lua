@@ -507,7 +507,8 @@ if game_name == "TSB" then
     local g12_Button_1 = game12:CreateButton({
         Name = "Oni Hub",
         Callback = function()
-            loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/OniHub-Revived/refs/heads/main/OnihubRevamped"))()
+            --loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/OniHub-Revived/refs/heads/main/OnihubRevamped"))()
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/Wowspws/Onihub/refs/heads/main/Oni%20Hub.Update%202.Release.txt"))()
         end
         })
     local g12_Toggle_1 = game12:CreateToggle({
@@ -516,7 +517,8 @@ if game_name == "TSB" then
         Flag = "g12_toggle_1",
         Callback = function(Value)
             if Rayfield.Flags["g12_toggle_1"].CurrentValue then
-                loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/OniHub-Revived/refs/heads/main/OnihubRevamped"))()
+                --loadstring(game:HttpGet("https://raw.githubusercontent.com/Onihub-sigma/OniHub-Revived/refs/heads/main/OnihubRevamped"))()
+                loadstring(game:HttpGet("https://raw.githubusercontent.com/Wowspws/Onihub/refs/heads/main/Oni%20Hub.Update%202.Release.txt"))()
             end
         end
         })
