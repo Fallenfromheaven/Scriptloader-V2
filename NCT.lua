@@ -389,7 +389,7 @@ Frame.Position = UDim2.new(0.5, -125, 0.5, -80)
 Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Frame.BorderSizePixel = 0
 Frame.Active = true
-Frame.Draggable = true
+Frame.Draggable = true  -- Ensures the entire frame is draggable
 Frame.BackgroundTransparency = 0.2
 
 local UICorner = Instance.new("UICorner")
@@ -407,7 +407,7 @@ Header.Font = Enum.Font.SourceSansBold
 Header.TextSize = 16
 Header.TextXAlignment = Enum.TextXAlignment.Center
 Header.Active = true
-Header.Draggable = true
+Header.Draggable = false  -- Ensures only the Frame is draggable, not just the header
 
 local CloseButton = Instance.new("TextButton")
 CloseButton.Parent = Frame
