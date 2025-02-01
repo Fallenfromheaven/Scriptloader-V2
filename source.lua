@@ -27,6 +27,7 @@ local gamePlaceIDs = {
     ["Combat Warriors"]  = {4282985734, 11979315221, 9532476417, 16323991061, 18480127448, 18480122340},
     ["KAT"]              = {621129760},
     ["TSB"]              = {10449761463, 131048399685555, 130818724007978, 12360882630, 10449761463},
+    ["NCT"]              = {18270421464},
 }
 
 local function resolveGameNameByPlaceID(placeId)
@@ -535,6 +536,30 @@ if game_name == "TSB" then
         end
         })
     local g12_Divider_3 = game12:CreateDivider()
+end
+
+if game_name == "NCT" then
+
+    local game13 = Window:CreateTab("Noob Crusher Tycoon", 4483362458)
+
+    local g13_Section_1 = game13:CreateSection("Noob Crusher Tycoon Script")
+    local g13_Button_1 = game13:CreateButton({
+        Name = "NCT Script",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/NCT.lua'))()
+        end
+        })
+    local g13_Toggle_1 = game13:CreateToggle({
+        Name = "Noob Crusher Tycoon Script Auto-execute",
+        CurrentValue = false,
+        Flag = "g13_toggle_1",
+        Callback = function(Value)
+            if Rayfield.Flags["g13_toggle_1"].CurrentValue then
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/NCT.lua'))()
+            end
+        end
+        })
+    local g13_Divider_1 = game13:CreateDivider()
 end
 
 local settings_ = Window:CreateTab("Settings", 4483362458)
