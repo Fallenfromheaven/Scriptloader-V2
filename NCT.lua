@@ -22,7 +22,7 @@ local function findRemote()
                     if child.Name == "LootSending" then
                         remote = child
                         remoteParentName = obj.Name
-                        print("Found remote in: " .. remoteParentName)
+                        --print("Found remote in: " .. remoteParentName)
                         return remote
                     end
                 end
@@ -349,6 +349,7 @@ local args = {
 
 local autoMoney = false
 local autoRebirth = false
+local autoOutputMultiplier = false
 local spamDelay = 0
 
 local function spamRemote()
@@ -357,7 +358,7 @@ local function spamRemote()
         if dynamicRemote then
             dynamicRemote:FireServer(unpack(args))
         else
-            print("Remote lost. Re-scanning...")
+            --print("Remote lost. Re-scanning...")
             remote = findRemote()
             while not remote do
                 task.wait(0.5)
@@ -378,18 +379,37 @@ local function spamRebirth()
     end
 end
 
+local function spamOutputMultiplier()
+    while autoOutputMultiplier do
+        local buttonsFolder = workspace:FindFirstChild("Buttons")
+        if buttonsFolder then
+            for _, button in ipairs(buttonsFolder:GetChildren()) do
+                local data = button:FindFirstChild("Machine")
+                if data and data.Value == "OutputMultiplierUpgrade" then
+                    local touchInterest = button:FindFirstChild("TouchInterest")
+                    if touchInterest then
+                        firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 0)
+                        firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 1)
+                    end
+                end
+            end
+        end
+        task.wait(0.5)
+    end
+end
+
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = CoreGui
 ScreenGui.Name = "SpamToggleGui"
 
 local Frame = Instance.new("Frame")
 Frame.Parent = ScreenGui
-Frame.Size = UDim2.new(0, 250, 0, 160)
-Frame.Position = UDim2.new(0.5, -125, 0.5, -80)
+Frame.Size = UDim2.new(0, 250, 0, 200)
+Frame.Position = UDim2.new(0.5, -125, 0.5, -100)
 Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Frame.BorderSizePixel = 0
 Frame.Active = true
-Frame.Draggable = true  -- Ensures the entire frame is draggable
+Frame.Draggable = true
 Frame.BackgroundTransparency = 0.2
 
 local UICorner = Instance.new("UICorner")
@@ -406,8 +426,6 @@ Header.TextColor3 = Color3.fromRGB(255, 255, 255)
 Header.Font = Enum.Font.SourceSansBold
 Header.TextSize = 16
 Header.TextXAlignment = Enum.TextXAlignment.Center
-Header.Active = true
-Header.Draggable = false  -- Ensures only the Frame is draggable, not just the header
 
 local CloseButton = Instance.new("TextButton")
 CloseButton.Parent = Frame
@@ -423,36 +441,41 @@ CloseButton.MouseButton1Click:Connect(function()
     ScreenGui:Destroy()
 end)
 
-local MoneyButton = Instance.new("TextButton")
-MoneyButton.Parent = Frame
-MoneyButton.Size = UDim2.new(0, 230, 0, 40)
-MoneyButton.Position = UDim2.new(0.5, -115, 0, 40)
-MoneyButton.Text = "Start Auto-Money"
-MoneyButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+local function createToggleButton(parent, position, text, callback)
+    local button = Instance.new("TextButton")
+    button.Parent = parent
+    button.Size = UDim2.new(0, 230, 0, 40)
+    button.Position = position
+    button.Text = text
+    button.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+    
+    button.MouseButton1Click:Connect(function()
+        callback(button)
+    end)
+    
+    return button
+end
 
-local RebirthButton = Instance.new("TextButton")
-RebirthButton.Parent = Frame
-RebirthButton.Size = UDim2.new(0, 230, 0, 40)
-RebirthButton.Position = UDim2.new(0.5, -115, 0, 90)
-RebirthButton.Text = "Start Auto-Rebirthing"
-RebirthButton.BackgroundColor3 = Color3.fromRGB(200, 0, 0)
+local function toggleState(state, button, onText, offText)
+    state = not state
+    button.Text = state and onText or offText
+    button.BackgroundColor3 = state and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(200, 0, 0)
+    return state
+end
 
-MoneyButton.MouseButton1Click:Connect(function()
-    autoMoney = not autoMoney
-    MoneyButton.Text = autoMoney and "Stop Auto-Money" or "Start Auto-Money"
-    MoneyButton.BackgroundColor3 = autoMoney and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(200, 0, 0)
-    if autoMoney then
-        task.spawn(spamRemote)
-    end
+local MoneyButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0, 40), "Start Auto-Money", function(button)
+    autoMoney = toggleState(autoMoney, button, "Stop Auto-Money", "Start Auto-Money")
+    if autoMoney then task.spawn(spamRemote) end
 end)
 
-RebirthButton.MouseButton1Click:Connect(function()
-    autoRebirth = not autoRebirth
-    RebirthButton.Text = autoRebirth and "Stop Auto-Rebirthing" or "Start Auto-Rebirthing"
-    RebirthButton.BackgroundColor3 = autoRebirth and Color3.fromRGB(0, 200, 0) or Color3.fromRGB(200, 0, 0)
-    if autoRebirth then
-        task.spawn(spamRebirth)
-    end
+local RebirthButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0, 90), "Start Auto-Rebirthing", function(button)
+    autoRebirth = toggleState(autoRebirth, button, "Stop Auto-Rebirthing", "Start Auto-Rebirthing")
+    if autoRebirth then task.spawn(spamRebirth) end
+end)
+
+local OutputMultiplierButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0, 140), "Start Auto-OutputMultiplier", function(button)
+    autoOutputMultiplier = toggleState(autoOutputMultiplier, button, "Stop Auto-OutputMultiplier", "Start Auto-OutputMultiplier")
+    if autoOutputMultiplier then task.spawn(spamOutputMultiplier) end
 end)
 
 print("Optimized GUI Toggle Loaded.")
