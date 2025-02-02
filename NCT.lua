@@ -11,7 +11,7 @@ local team_tycoon_association = {
     ["Neutral"]     = nil,
     ["Blue Team"]   = "TycoonA",
     ["Red Team"]    = "TycoonB",
-    ["Yellow Team"] = "TycoonC",
+    ["Yeller Team"] = "TycoonC",
     ["Green Team"]  = "TycoonD",
     ["Black Team"]  = "TycoonE",
     ["Pink Team"]   = "TycoonF", 
@@ -27,6 +27,7 @@ local function updateTycoon()
 end
 
 updateTycoon()
+
 Players.LocalPlayer:GetPropertyChangedSignal("Team"):Connect(updateTycoon)
 
 local function getCurrentTycoon()
@@ -377,6 +378,7 @@ local args = {
 local autoMoney = false
 local autoRebirth = false
 local autoOutputMultiplier = false
+local autoUpgrades = false
 local spamDelay = 0
 
 local function spamRemote()
@@ -440,13 +442,54 @@ local function spamOutputMultiplier()
     end
 end
 
+local function activateAllButtons()
+    local tycoonFolder = workspace:FindFirstChild(tycoon)
+    if not tycoonFolder then
+        warn("TycoonE folder not found in workspace.")
+        return
+    end
+
+    local buttonsFolder = tycoonFolder:FindFirstChild("Buttons")
+    if not buttonsFolder then
+        warn("Buttons folder not found in TycoonE.")
+        return
+    end
+
+    while autoUpgrades do
+        for _, button in ipairs(buttonsFolder:GetChildren()) do
+            if button.Name ~= "PickupWeapon" then
+                local hasInvalidMachine = false
+                for _, descendant in ipairs(button:GetDescendants()) do
+                    if descendant.Name == "Machine" and descendant:IsA("ValueBase") then
+                        local machineValue = tostring(descendant.Value)
+                        if machineValue == "OutputMultiplierUpgrade" or machineValue == "Rebirth" then
+                            hasInvalidMachine = true
+                            break
+                        end
+                    end
+                end
+
+                if not hasInvalidMachine and button:FindFirstChild("ButtonSelectionBox") then
+                    local touchInterest = button:FindFirstChild("TouchInterest")
+                    if touchInterest then
+                        firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 0)
+                        task.wait(0.1)
+                        firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 1)
+                    end
+                end
+            end
+        end
+        task.wait(0.5)
+    end
+end
+
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Parent = CoreGui
 ScreenGui.Name = "SpamToggleGui"
 
 local Frame = Instance.new("Frame")
 Frame.Parent = ScreenGui
-Frame.Size = UDim2.new(0, 250, 0, 200)
+Frame.Size = UDim2.new(0, 250, 0, 250)
 Frame.Position = UDim2.new(0.5, -125, 0.5, -100)
 Frame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
 Frame.BorderSizePixel = 0
@@ -518,4 +561,10 @@ local OutputMultiplierButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0,
     autoOutputMultiplier = toggleState(autoOutputMultiplier, button, "Stop Auto-OutputMultiplier", "Start Auto-OutputMultiplier")
     if autoOutputMultiplier then task.spawn(spamOutputMultiplier) end
 end)
+
+local UpgradesButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0, 190), "Start Auto-Upgrades", function(button)
+    autoUpgrades = toggleState(autoUpgrades, button, "Stop Auto-Upgrades", "Start Auto-Upgrades")
+    if autoUpgrades then task.spawn(activateAllButtons) end
+end)
+
 print("GUI loaded")
