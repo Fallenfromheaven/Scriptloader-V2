@@ -22,7 +22,6 @@ local function findRemote()
                     if child.Name == "LootSending" then
                         remote = child
                         remoteParentName = obj.Name
-                        --print("Found remote in: " .. remoteParentName)
                         return remote
                     end
                 end
@@ -358,7 +357,6 @@ local function spamRemote()
         if dynamicRemote then
             dynamicRemote:FireServer(unpack(args))
         else
-            --print("Remote lost. Re-scanning...")
             remote = findRemote()
             while not remote do
                 task.wait(0.5)
@@ -380,20 +378,36 @@ local function spamRebirth()
 end
 
 local function spamOutputMultiplier()
+    local tycoonFolder = workspace:FindFirstChild("TycoonA")
+    if not tycoonFolder then
+        warn("TycoonA folder not found in workspace.")
+        return
+    end
+
     while autoOutputMultiplier do
-        local buttonsFolder = workspace:FindFirstChild("Buttons")
+        local buttonsFolder = tycoonFolder:FindFirstChild("Buttons")
         if buttonsFolder then
             for _, button in ipairs(buttonsFolder:GetChildren()) do
-                local data = button:FindFirstChild("Machine")
-                if data and data.Value == "OutputMultiplierUpgrade" then
-                    local touchInterest = button:FindFirstChild("TouchInterest")
-                    if touchInterest then
-                        firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 0)
-                        firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 1)
+                if button.Name == "Upgrade" then
+                    for _, descendant in ipairs(button:GetDescendants()) do
+                        if descendant.Name == "Machine" then
+                            if tostring(descendant.Value) == "OutputMultiplierUpgrade" then
+                                local touchInterest = button:FindFirstChild("TouchInterest")
+                                if touchInterest then
+                                    firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 0)
+                                    task.wait(0.1)
+                                    firetouchinterest(Players.LocalPlayer.Character.HumanoidRootPart, button, 1)
+                                    break
+                                end
+                            end
+                        end
                     end
                 end
             end
+        else
+            warn("Buttons folder not found in TycoonA.")
         end
+
         task.wait(0.5)
     end
 end
@@ -467,7 +481,6 @@ local MoneyButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0, 40), "Star
     autoMoney = toggleState(autoMoney, button, "Stop Auto-Money", "Start Auto-Money")
     if autoMoney then task.spawn(spamRemote) end
 end)
-
 local RebirthButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0, 90), "Start Auto-Rebirthing", function(button)
     autoRebirth = toggleState(autoRebirth, button, "Stop Auto-Rebirthing", "Start Auto-Rebirthing")
     if autoRebirth then task.spawn(spamRebirth) end
@@ -477,5 +490,4 @@ local OutputMultiplierButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0,
     autoOutputMultiplier = toggleState(autoOutputMultiplier, button, "Stop Auto-OutputMultiplier", "Start Auto-OutputMultiplier")
     if autoOutputMultiplier then task.spawn(spamOutputMultiplier) end
 end)
-
-print("Optimized GUI Toggle Loaded.")
+print("GUI loaded")
