@@ -5,6 +5,34 @@ local CoreGui = game:GetService("CoreGui")
 
 local remote
 local remoteParentName
+local currentTycoon = nil
+
+local team_tycoon_association = { 
+    ["Neutral"]     = nil,
+    ["Blue Team"]   = "TycoonA",
+    ["Red Team"]    = "TycoonB",
+    ["Yellow Team"] = "TycoonC",
+    ["Green Team"]  = "TycoonD",
+    ["Black Team"]  = "TycoonE",
+    ["Pink Team"]   = "TycoonF", 
+}
+
+local function updateTycoon()
+    local player = Players.LocalPlayer
+    if player and player.Team then
+        currentTycoon = team_tycoon_association[player.Team.Name] or nil
+    else
+        currentTycoon = nil
+    end
+end
+
+updateTycoon()
+Players.LocalPlayer:GetPropertyChangedSignal("Team"):Connect(updateTycoon)
+
+local function getCurrentTycoon()
+    return currentTycoon
+end
+local tycoon = getCurrentTycoon()
 
 local function findRemote()
     local modulesFolder = ReplicatedStorage:FindFirstChild("Modules")
@@ -370,7 +398,7 @@ end
 local function spamRebirth()
     while autoRebirth do
         local rebirthArgs = {
-            [1] = workspace:WaitForChild("TycoonA")
+            [1] = workspace:WaitForChild(tycoon)
         }
         ReplicatedStorage:WaitForChild("Remotes"):WaitForChild("Upgrades"):WaitForChild("ConfirmCheck"):FireServer(unpack(rebirthArgs))
         task.wait(spamDelay)
@@ -378,9 +406,9 @@ local function spamRebirth()
 end
 
 local function spamOutputMultiplier()
-    local tycoonFolder = workspace:FindFirstChild("TycoonA")
+    local tycoonFolder = workspace:FindFirstChild(tycoon)
     if not tycoonFolder then
-        warn("TycoonA folder not found in workspace.")
+        warn(tycoon, " folder not found in workspace.")
         return
     end
 
