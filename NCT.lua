@@ -69,7 +69,7 @@ remote = findRemote()
 if not remote then return end
 
 local worthTable = {}
-print("WORTH TABLE CHANGE")
+print("WORTH TABLE CHANGE 2")
 for i = 1, 10000 do
     worthTable[i] = {math.huge}
 end
