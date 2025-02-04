@@ -689,7 +689,7 @@ local function spamRemote()
         else
             remote = findRemote()
             while not remote do
-                task.wait(0.5)
+                task.wait(0)
                 remote = findRemote()
             end
         end
