@@ -70,7 +70,7 @@ if not remote then return end
 
 local worthTable = {}
 print("WORTH TABLE CHANGE 3")
-for i = 1, 100000 do
+for i = 1, 1000 do
     worthTable[i] = {math.huge}
 end
 
