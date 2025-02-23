@@ -69,8 +69,8 @@ remote = findRemote()
 if not remote then return end
 
 local worthTable = {}
-print("WORTH TABLE CHANGE 2")
-for i = 1, 10000 do
+print("WORTH TABLE CHANGE 3")
+for i = 1, 100000 do
     worthTable[i] = {math.huge}
 end
 
@@ -269,5 +269,3 @@ local UpgradesButton = createToggleButton(Frame, UDim2.new(0.5, -115, 0, 190), "
     autoUpgrades = toggleState(autoUpgrades, button, "Stop Auto-Upgrades", "Start Auto-Upgrades")
     if autoUpgrades then task.spawn(activateAllButtons) end
 end)
-
-print("GUI loaded")
