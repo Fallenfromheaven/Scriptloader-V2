@@ -546,7 +546,7 @@ if game_name == "NCT" then
     local g13_Button_1 = game13:CreateButton({
         Name = "NCT Script",
         Callback = function()
-            loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/NCT.lua'))()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Games/refs/heads/main/NCT.lua'))()
         end
         })
     local g13_Toggle_1 = game13:CreateToggle({
@@ -555,7 +555,7 @@ if game_name == "NCT" then
         Flag = "g13_toggle_1",
         Callback = function(Value)
             if Rayfield.Flags["g13_toggle_1"].CurrentValue then
-                loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Scriptloader-V2/refs/heads/main/NCT.lua'))()
+                loadstring(game:HttpGet('https://raw.githubusercontent.com/Fallenfromheaven/Games/refs/heads/main/NCT.lua'))()
             end
         end
         })
